@@ -12,7 +12,10 @@ screen.bgpic("blank_states_img.gif")
 
 play_is_on = True
 while len(myTurtle.correct_list) < 50:
-    user_answer = screen.textinput(f"{len(myTurtle.correct_list)}/50 States_Correct", "What's another State Name")
-    myTurtle.is_state_exist(user_answer.title())
+    user_answer = screen.textinput(f"{len(myTurtle.correct_list)}/50 States_Correct", "What's another State Name").title()
+    if user_answer == 'Exit':
+        print(myTurtle.not_guessed_states())
+        break
+    myTurtle.is_state_exist(user_answer)
 
 screen.exitonclick()
